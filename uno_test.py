@@ -18,13 +18,13 @@ class Deco:
     def __get__(self, instance, owner):
         def wrapper(*args, **kwargs):
 
-            # ✅ count moves (fix)
+            # count moves (fix)
             if self.count:
                 if not hasattr(instance, "moves"):
                     instance.moves = 0
                 instance.moves += 1
 
-            # ✅ validate (safe args fix)
+            # validate (safe args fix)
             if self.validate:
                 index = args[0] if args else kwargs.get("index")
                 top_card = args[1] if len(args) > 1 else kwargs.get("top_card")
